@@ -1,0 +1,42 @@
+<div class="row form-group">
+  <div class="col-md-9">
+    <h4>Voorstellingen</h4>
+  </div>
+  <div class="col-md-3 text-right">
+    <button class="btn btn-success" routerLink="/add-voorstelling">Voeg voorstelling toe
+    </button>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <tr class="default">
+      <th rowspan="2" class="text-center" style="vertical-align: middle">Picture
+      </th>
+      <th rowspan="2" class="text-center" style="vertical-align: middle">Titel
+      </th>
+      <th rowspan="2" class="text-center" style="vertical-align: middle">Genre
+      </th>
+      <th rowspan="2" class="text-center" style="vertical-align: middle">Zaal
+      </th>
+      <th rowspan="2" class="text-center" style="vertical-align: middle">Tijden
+      </th>
+      <th rowspan="2" class="text-center" style="vertical-align: middle">Duur
+      </th>
+    </tr>
+    
+    <tr *ngFor="let voorstelling of voorstellingen">
+      <td (click)="viewDetail(voorstelling._id)"><img src="{{voorstelling.imagePath}}" alt="" class="img-responsive" style="max-width: 200px;" /></td>
+      <td (click)="viewDetail(voorstelling._id)">{{voorstelling.name}}</td>
+
+      <td class="text-center">
+        <button type="button" data-toggle="tooltip" data-placement="top" class="btn btn-default btn-block btn-xs" (click)="viewDetail(voorstelling._id)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+      </td>
+      <td class="text-center">
+        <button type="button" class="btn btn-block btn-default btn-xs" (click)="update(voorstelling._id)"><i class="fa fa-edit" aria-hidden="true"></i></button>
+      </td>
+      <td class="text-center">
+        <button type="button" (click)="remove(voorstelling._id)" class="btn btn-danger btn-block btn-xs"><i class="fa fa-close" aria-hidden="true"></i></button>
+      </td>
+    </tr>
+  </table>
+</div>

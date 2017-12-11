@@ -1,0 +1,61 @@
+<div class="col-md-offset-3 col-md-6" *ngIf="voorstelling">
+  <div class="panel panel-default">
+    <div class="row" style="margin: 0">
+      <div class="col-md-12 text-center form-header">
+        <h4>Add New voorstelling</h4>
+      </div>
+    </div>
+    <div class="panel-body">
+      <form [formGroup]="voorstellingAddForm"
+            (ngSubmit)="add()"
+            novalidate>
+        <div class="form-group">
+          <label for="name">Titel</label>
+          <input id="name"
+                 value="{{voorstelling.name}}"
+                 class="form-control"
+                 formControlName="name">
+        </div>
+        <div class="form-group">
+          <label for="genre">genre</label>
+          <input id="genre"
+                 value="{{voorstelling.genre}}"
+                 class="form-control"
+                 formControlName="genre">
+        </div>
+        <div class="form-group">
+          <label for="imagePath">Image Path</label>
+          <input id="imagePath"
+                 value="{{voorstelling.imagePath}}"
+                 class="form-control"
+                 formControlName="imagePath">
+        </div>
+ 
+        <div class="form-group">
+          <label for="time">Tijd</label>
+          <input id="time"
+                 value="{{voorstelling.time}}"
+                 class="form-control"
+                 formControlName="time">
+        </div>
+        <div class="form-group">
+          <label for="zaal">zaal</label>
+          <input id="zaal"
+                 value="{{voorstelling.zaal}}"
+                 class="form-control"
+                 formControlName="zaal">
+        </div>
+        
+       
+
+       
+    
+        <div>
+          <button class="btn btn-success"
+                  [disabled]="!voorstellingAddForm.valid">Add Voorstelling</button>
+          <button type="button" class="btn btn-default" (click)="goBack()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
